@@ -2,6 +2,9 @@
 
 Same exact behavior with dfx cli
 
+TODO:
+- Secp256k1
+
 #### Example
 ```
 # Generate pem
