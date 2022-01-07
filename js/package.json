@@ -1,0 +1,15 @@
+{
+  "name": "dfx-key",
+  "version": "1.0.0",
+  "description": "dfx key reader and writer",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@dfinity/identity": "^0.10.2",
+    "sha256": "^0.2.0"
+  }
+}
