@@ -1,7 +1,6 @@
 import fs from 'fs';
 import {Ed25519KeyIdentity, Ed25519PublicKey} from '@dfinity/identity';
 import {Principal} from '@dfinity/principal';
-import {toHexString} from './utils.js';
 import tweetnacl from 'tweetnacl';
 
 // ED25519 version 2
@@ -30,26 +29,26 @@ export const getIdentityFromPem = (pem) => {
 
   const pair = identity.getKeyPair();
 
-  console.log('Private key:', toHexString(pair.secretKey));
+  console.log('Private key:', Buffer.from(pair.secretKey).toString("hex"));
 
-  console.log('Public key:', toHexString(pair.publicKey.toRaw()));
+  console.log('Public key:', Buffer.from(pair.publicKey.toRaw()).toString("hex"));
 
   console.log('==================================================================');
 
   const newPair = tweetnacl.sign.keyPair.fromSeed(key.slice(0, 32));
 
-  console.log('New private key:', toHexString(newPair.secretKey));
+  console.log('New private key:', Buffer.from(newPair.secretKey).toString("hex"));
 
-  console.log('New public key:', toHexString(newPair.publicKey));
+  console.log('New public key:', Buffer.from(newPair.publicKey).toString("hex"));
 
   console.log('==================================================================');
 
-  const challenge = 'PUT YOUR MESSAGE HERE';
+  const challenge = '3x7en-uqaaa-aaaai-abgca-cai';
   console.log('Message to verify:', challenge);
 
   const message = new Uint8Array(Buffer.from(challenge, 'utf-8'));
   const signature = tweetnacl.sign.detached(message, newPair.secretKey);
-  console.log('Signature:', toHexString(signature));
+  console.log('Signature:', Buffer.from(signature).toString("hex"));
 
   const result = tweetnacl.sign.detached.verify(message, signature, newPair.publicKey);
   console.log('Verify signature:', result);
