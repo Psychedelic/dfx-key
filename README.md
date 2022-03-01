@@ -1,4 +1,4 @@
-# Dfinity key reader/writer
+# Internet Computer's key reader/writer
 
 - Provides examples of how to get private key, public key out of a PEM file, how to use them to sign a message to get a signature and how to verify a signature.
 
