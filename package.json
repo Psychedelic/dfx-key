@@ -9,7 +9,10 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@dfinity/identity": "^0.10.2",
+    "@dfinity/identity": "^0.10.4",
+    "@dfinity/principal": "^0.10.4",
+    "@dfinity/agent": "^0.10.4",
+    "@dfinity/candid": "^0.10.4",
     "sha256": "^0.2.0",
     "tweetnacl": "^1.0.3"
   }
