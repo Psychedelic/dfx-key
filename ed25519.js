@@ -43,7 +43,7 @@ export const getIdentityFromPem = (pem) => {
 
   console.log('==================================================================');
 
-  const challenge = '1649274029457';
+  const challenge = new Date().getTime().toString();
   console.log('Message to verify:', challenge);
 
   const message = new Uint8Array(Buffer.from(challenge, 'utf-8'));
