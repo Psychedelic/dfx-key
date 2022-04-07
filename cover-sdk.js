@@ -2,7 +2,6 @@ import fs from 'fs';
 import {Cover, getPublicKey, sign} from "@psychedelic/cover";
 import {Ed25519KeyIdentity} from "@dfinity/identity";
 import {Principal} from "@dfinity/principal";
-import {SignIdentity} from "@dfinity/agent";
 
 const pem = fs.readFileSync(process.env.PEM_PATH).toString()
   .replace('-----BEGIN PRIVATE KEY-----', '')
