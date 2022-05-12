@@ -20,22 +20,6 @@ const identity = Ed25519KeyIdentity.fromSecretKey(key);
 
 const cover = new Cover(identity);
 
-// verify a canister
-const isVerified = await cover.verify(Principal.fromText("iftvq-niaaa-aaaai-qasga-cai"));
-console.log("isVerified", isVerified);
-
-// get wasm hash from IC network
-const icHash = await cover.getICHash(Principal.fromText("iftvq-niaaa-aaaai-qasga-cai"));
-console.log("icHash", icHash);
-
-// get wasm hash from Cover verification
-const coverHash = await cover.getCoverHash(Principal.fromText("iftvq-niaaa-aaaai-qasga-cai"));
-console.log("coverHash", coverHash);
-
-// get Cover verification by canister ID
-const verification = await cover.getVerificationByCanisterId(Principal.fromText("iftvq-niaaa-aaaai-qasga-cai"));
-console.log("verification", verification);
-
 // get public key
 const publicKey = getPublicKey(identity);
 console.log("publicKey", publicKey);
