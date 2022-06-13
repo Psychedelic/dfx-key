@@ -1,6 +1,5 @@
 import fs from 'fs';
 import {Secp256k1KeyIdentity} from '@dfinity/identity';
-import {toHexString} from './utils.js';
 
 function getIdentityFromPem(pem) {
   const PEM_BEGIN = '-----BEGIN PRIVATE KEY-----';
@@ -28,9 +27,9 @@ function getIdentityFromPem(pem) {
 
   const pair = identity.getKeyPair();
 
-  console.log('Private key: ', toHexString(pair.secretKey));
+  console.log('Private key: ', Buffer.from(pair.secretKey).toString("hex"));
 
-  console.log('Public key: ', toHexString(pair.publicKey.toRaw()));
+  console.log('Public key: ', Buffer.from(pair.publicKey.toRaw()).toString("hex"));
 };
 
 const pem = fs.readFileSync(process.env.PEM_PATH).toString();
