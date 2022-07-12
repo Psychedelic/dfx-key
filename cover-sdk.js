@@ -1,7 +1,6 @@
 import fs from "fs";
-import { Cover, getPublicKey, sign } from "@psychedelic/cover";
+import { getPublicKey, sign } from "@psychedelic/cover";
 import { Ed25519KeyIdentity } from "@dfinity/identity";
-import { Principal } from "@dfinity/principal";
 
 const pem = fs
   .readFileSync(process.env.PEM_PATH)
@@ -19,8 +18,6 @@ const raw = Buffer.from(pem, "base64")
 const key = new Uint8Array(Buffer.from(raw, "hex"));
 
 const identity = Ed25519KeyIdentity.fromSecretKey(key);
-
-const cover = new Cover(identity);
 
 // get public key
 const publicKey = getPublicKey(identity);
