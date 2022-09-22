@@ -9,11 +9,11 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@dfinity/agent": "^0.12.1",
-    "@dfinity/candid": "^0.12.1",
-    "@dfinity/identity": "^0.12.1",
-    "@dfinity/principal": "^0.12.1",
-    "@psychedelic/cover": "^0.0.17",
+    "@dfinity/agent": "^0.13.3",
+    "@dfinity/candid": "^0.13.3",
+    "@dfinity/identity": "^0.13.3",
+    "@dfinity/principal": "^0.13.3",
+    "@psychedelic/cover": "^0.0.18",
     "sha256": "^0.2.0",
     "tweetnacl": "^1.0.3"
   }
