@@ -60,6 +60,16 @@ const buildConfig = await cover.getBuildConfigByCanisterId(
 );
 console.log("buildConfig", buildConfig);
 
+const anonymousCoverMetadata= await Cover.anonymousCoverMetadata(
+  Principal.from("3x7en-uqaaa-aaaai-abgca-cai")
+);
+console.log("anonymousCoverMetadata", anonymousCoverMetadata);
+
+// const coverMetadata= await cover.coverMetadata(
+//   Principal.from("3x7en-uqaaa-aaaai-abgca-cai")
+// );
+// console.log("coverMetadata", coverMetadata);
+
 // ========================================================================================================
 // BUILD
 // ========================================================================================================
@@ -69,14 +79,14 @@ console.log("buildConfig", buildConfig);
 //   isDevelopment: true,
 // });
 
-await cover.build({
-  canisterId: "3x7en-uqaaa-aaaai-abgca-cai",
-  dfxVersion: "0.11.2",
-  delegateCanisterId: "",
-  canisterName: "cover_test",
-  commitHash: "1423bbf5596263d75fb5414fea45237f9b6ed4f2",
-  repoUrl: "psychedelic/cover",
-  rustVersion: "1.63.0",
-  optimizeCount: 0,
-  repoAccessToken: "",
-});
+// await cover.build({
+//   canisterId: "3x7en-uqaaa-aaaai-abgca-cai",
+//   dfxVersion: "0.11.2",
+//   delegateCanisterId: "",
+//   canisterName: "cover_test",
+//   commitHash: "1423bbf5596263d75fb5414fea45237f9b6ed4f2",
+//   repoUrl: "psychedelic/cover",
+//   rustVersion: "1.63.0",
+//   optimizeCount: 0,
+//   repoAccessToken: "",
+// });
