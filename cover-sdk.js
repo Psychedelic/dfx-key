@@ -1,7 +1,7 @@
 import fs from "fs";
-import { getPublicKey, sign, Cover } from "@psychedelic/cover";
-import { Ed25519KeyIdentity } from "@dfinity/identity";
-import { Principal } from "@dfinity/principal";
+import {getPublicKey, sign, Cover} from "@psychedelic/cover";
+import {Ed25519KeyIdentity} from "@dfinity/identity";
+import {Principal} from "@dfinity/principal";
 
 const pem = fs
   .readFileSync(process.env.PEM_PATH)
@@ -34,7 +34,7 @@ console.log("signature", signature);
 // =========================================================================================================
 // EXAMPLE
 // =========================================================================================================
-const cover = new Cover(identity, { isDevelopment: true });
+const cover = new Cover(identity, {isDevelopment: true});
 
 await cover.deleteBuildConfig(Principal.from("3x7en-uqaaa-aaaai-abgca-cai"));
 
@@ -60,33 +60,46 @@ const buildConfig = await cover.getBuildConfigByCanisterId(
 );
 console.log("buildConfig", buildConfig);
 
-const anonymousCoverMetadata= await Cover.anonymousCoverMetadata(
+const anonymousCoverMetadata = await Cover.anonymousCoverMetadata(
   Principal.from("3x7en-uqaaa-aaaai-abgca-cai")
 );
 console.log("anonymousCoverMetadata", anonymousCoverMetadata);
 
-// const coverMetadata= await cover.coverMetadata(
-//   Principal.from("3x7en-uqaaa-aaaai-abgca-cai")
-// );
-// console.log("coverMetadata", coverMetadata);
+const coverMetadata = await cover.coverMetadata(
+  Principal.from("3x7en-uqaaa-aaaai-abgca-cai")
+);
+console.log("coverMetadata", coverMetadata);
 
 // ========================================================================================================
 // BUILD
 // ========================================================================================================
-// await cover.buildWithConfig("3x7en-uqaaa-aaaai-abgca-cai");
+cover
+  .buildWithConfig({
+    canisterId: "3x7en-uqaaa-aaaai-abgca-cai",
+    repoAccessToken: "",
+  })
+  .catch(console.error);
 
-// await Cover.buildWithCoverMetadata("3x7en-uqaaa-aaaai-abgca-cai", undefined, {
-//   isDevelopment: true,
-// });
+Cover.buildWithCoverMetadata(
+  {
+    canisterId: "3x7en-uqaaa-aaaai-abgca-cai",
+    repoAccessToken: "",
+  },
+  {
+    isDevelopment: true,
+  }
+).catch(console.error);
 
-// await cover.build({
-//   canisterId: "3x7en-uqaaa-aaaai-abgca-cai",
-//   dfxVersion: "0.11.2",
-//   delegateCanisterId: "",
-//   canisterName: "cover_test",
-//   commitHash: "1423bbf5596263d75fb5414fea45237f9b6ed4f2",
-//   repoUrl: "psychedelic/cover",
-//   rustVersion: "1.63.0",
-//   optimizeCount: 0,
-//   repoAccessToken: "",
-// });
+cover
+  .build({
+    canisterId: "3x7en-uqaaa-aaaai-abgca-cai",
+    dfxVersion: "0.11.2",
+    delegateCanisterId: "",
+    canisterName: "cover_test",
+    commitHash: "1423bbf5596263d75fb5414fea45237f9b6ed4f2",
+    repoUrl: "psychedelic/cover",
+    rustVersion: "1.63.0",
+    optimizeCount: 0,
+    repoAccessToken: "",
+  })
+  .catch(console.error);
