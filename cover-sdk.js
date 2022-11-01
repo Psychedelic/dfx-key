@@ -36,7 +36,7 @@ console.log("signature", signature);
 // =========================================================================================================
 const cover = new Cover(identity, {isDevelopment: true});
 
-await cover.deleteBuildConfig(Principal.from("3x7en-uqaaa-aaaai-abgca-cai"));
+await cover.deleteMyBuildConfig(Principal.from("3x7en-uqaaa-aaaai-abgca-cai"));
 
 await cover.saveBuildConfig({
   canisterId: "3x7en-uqaaa-aaaai-abgca-cai",
@@ -50,12 +50,12 @@ await cover.saveBuildConfig({
   repoAccessToken: "",
 });
 
-const buildConfigs = await cover.getBuildConfigs(
+const buildConfigs = await cover.getMyBuildConfigs(
   Principal.from("3x7en-uqaaa-aaaai-abgca-cai")
 );
 console.log("buildConfigs", buildConfigs);
 
-const buildConfig = await cover.getBuildConfigByCanisterId(
+const buildConfig = await cover.getMyBuildConfigById(
   Principal.from("3x7en-uqaaa-aaaai-abgca-cai")
 );
 console.log("buildConfig", buildConfig);
