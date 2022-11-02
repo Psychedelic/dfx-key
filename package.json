@@ -13,7 +13,7 @@
     "@dfinity/candid": "^0.14.0",
     "@dfinity/identity": "^0.14.0",
     "@dfinity/principal": "^0.14.0",
-    "@psychedelic/cover": "^0.0.33",
+    "@psychedelic/cover": "^0.0.34",
     "sha256": "^0.2.0",
     "tweetnacl": "^1.0.3"
   }
